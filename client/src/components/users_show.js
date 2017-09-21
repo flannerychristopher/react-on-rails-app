@@ -14,7 +14,7 @@ class UsersShow extends Component {
 
   render() {
     const { user } = this.props;
-    if (!user) return <div>Loading user ...</div>;
+    if (!user) return <div>searching for user ...</div>;
     return (
       <div>
         <h3>{user.name}</h3>

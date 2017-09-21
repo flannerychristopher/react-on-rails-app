@@ -7,6 +7,7 @@ import UsersShow from './users_show';
 export default function () {
   return (
     <div className="content">
+      <h1>The React on Rails Toy App</h1>
       <Route path="/users/:id" component={UsersShow} />
     </div>
   );

@@ -1,17 +1,32 @@
 :global(body) {
   color: #444343;
   background: #EEE;
+  font-family: Impact, Tacoma, sans-serif;
 }
 
 :global(.usersIndex) {
-  display: inline-block;
+  float: left;
   width: 200px;
-  border-right: 1px solid black;
+  margin-right: 50px;
+  border-right: 1px solid #868686;
+}
+
+:global(.content) {
+  clear: right;
+  width: 100%;
+}
+
+:global(h1) {
+  text-align: center;
 }
 
 :global(ul) {
   padding: 0;
   list-style-type: none;
+}
+
+:global(li) {
+  margin-bottom: 10px;
 }
 
 :global(a) {
@@ -21,10 +36,4 @@
 
 :global(a:hover) {
   opacity: .6;
-}
-
-:global(.content) {
-  vertical-align: top;
-  display: inline-block;
-  margin-left: 50px;
 }

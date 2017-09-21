@@ -6,7 +6,7 @@ export default function (state = {}, action) {
       // return action.payload.data;
       return _.mapKeys(action.payload.data, 'id');
     case 'FETCH_USER':
-      // return action.payload.data;
+      if (!action.payload.data) return state;
       return { ...state, [action.payload.data.id]: action.payload.data };
     default:
       return state;
