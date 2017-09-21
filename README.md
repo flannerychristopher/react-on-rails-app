@@ -1,24 +1,3 @@
-# README
+This project is to create a simple blog, similar to the blog in Michael Hartl's Ruby on Rails Tutorial, with a React front end.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+No gem, such as react_on_rails, is used. The connection is through a proxy in the client/package.json and seperate buildpacks
