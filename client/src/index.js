@@ -9,6 +9,7 @@ import promise from 'redux-promise';
 import reducers from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 
+import './index.css';
 import App from './App';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);

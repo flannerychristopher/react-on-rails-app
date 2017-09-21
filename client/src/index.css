@@ -1,0 +1,30 @@
+:global(body) {
+  color: #444343;
+  background: #EEE;
+}
+
+:global(.usersIndex) {
+  display: inline-block;
+  width: 200px;
+  border-right: 1px solid black;
+}
+
+:global(ul) {
+  padding: 0;
+  list-style-type: none;
+}
+
+:global(a) {
+  color: #868686;
+  text-decoration: none;
+}
+
+:global(a:hover) {
+  opacity: .6;
+}
+
+:global(.content) {
+  vertical-align: top;
+  display: inline-block;
+  margin-left: 50px;
+}
