@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { fetchUsers } from '../actions';
 
 class UsersIndex extends Component {
@@ -14,7 +14,9 @@ class UsersIndex extends Component {
     return _.map(this.props.users, user => {
       return (
         <li key={user.id}>
-          {user.name}
+          <Link to={`users/${user.id}`}>
+            {user.name}
+          </Link>
         </li>
       )
     });

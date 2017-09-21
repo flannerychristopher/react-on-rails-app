@@ -8,3 +8,12 @@ export function fetchUsers() {
     payload: request
   };  
 }
+
+export function fetchUser(id) {
+  const request = axios.get(`users/${id}`);
+
+  return {
+    type: 'FETCH_USER',
+    payload: request
+  }
+}
