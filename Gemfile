@@ -31,6 +31,11 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3', '~> 1.3', '>= 1.3.13'
+  # gem 'rspec-rails', '~> 3.6', '>= 3.6.1'
+  gem 'capybara', '~> 2.15', '>= 2.15.1'
+  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+    gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
+  end
 end
 
 group :development do
