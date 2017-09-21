@@ -22,11 +22,11 @@ RSpec.describe "GET #show a single user", :type => :request do
     @user = User.create(name: "Bill Murray", email: "bill@example.com")
     get "/users/#{@user.id}"
   end
-
+  
   it "returns http success" do
     expect(response).to have_http_status(:success)
   end
-
+  
   it "responds with JSON body" do
     hash_body = nil
     expect { 
@@ -42,5 +42,39 @@ RSpec.describe "GET #show a single user", :type => :request do
       "email" => @user.email
     })
   end
+  
+end
 
+RSpec.describe "unpermitted routes rejected", :type => :request do
+  before do
+    @user = User.create(name: "Bill Murray", email: "bill@example.com")
+  end
+
+  it "DELETE returns no route" do
+    expect { 
+      delete "/users/#{@user.id}" 
+    }.to raise_error(ActionController::RoutingError)
+    expect(response).to be(nil)
+  end
+  
+  it "POST returns no route" do
+    expect { 
+      post "/users/#{@user.id}" 
+    }.to raise_error(ActionController::RoutingError)
+    expect(response).to be(nil)
+  end 
+  
+  it "PATCH returns no route" do
+    expect { 
+      patch "/users/#{@user.id}" 
+    }.to raise_error(ActionController::RoutingError)
+    expect(response).to be(nil)
+  end 
+  
+  it "PUT returns no route" do
+    expect { 
+      put "/users/#{@user.id}" 
+    }.to raise_error(ActionController::RoutingError)
+    expect(response).to be(nil)
+  end
 end
