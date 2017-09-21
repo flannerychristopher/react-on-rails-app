@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
+import UsersIndex from './components/users_index';
+import Content from './components/content';
+
 class App extends Component {
-  componentDidMount() {
-    window.fetch('users')
-      .then(response => response.json())
-      .then(json => console.log(json))
-      .catch(error => console.log(error))
-  }
   render() {
     return (
-      <h1>Toy App</h1>
+      <div>
+        <UsersIndex />
+        <Content />
+      </div>
     );
   }
 }

@@ -10,7 +10,7 @@ export function fetchUsers() {
 }
 
 export function fetchUser(id) {
-  const request = axios.get(`users/${id}`);
+  const request = axios.get(`/users/${id}`);
 
   return {
     type: 'FETCH_USER',

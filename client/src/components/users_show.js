@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import { fetchUser } from '../actions';
 
 class UsersShow extends Component {
+  // to fetch most recent user data from the server:
   componentDidMount() {
-    const { id } = this.props.match.params;
-    this.props.fetchUser(id);
+    if (!this.props.user) {
+      const { id } = this.props.match.params;
+      this.props.fetchUser(id);
+    }
   }
 
   render() {
@@ -15,7 +17,6 @@ class UsersShow extends Component {
     if (!user) return <div>Loading user ...</div>;
     return (
       <div>
-        <Link to="/">Back to Index</Link>
         <h3>{user.name}</h3>
         <p>{user.email}</p>
       </div>
@@ -28,10 +29,3 @@ function mapStateToProps({ users }, ownProps) {
 }
 
 export default connect(mapStateToProps, { fetchUser })(UsersShow);
-
-
-// export default class UsersShow extends Component {
-//   render() {
-//     return <div>this is a user!</div>
-//   }
-// }

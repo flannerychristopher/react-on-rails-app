@@ -14,7 +14,7 @@ class UsersIndex extends Component {
     return _.map(this.props.users, user => {
       return (
         <li key={user.id}>
-          <Link to={`users/${user.id}`}>
+          <Link to={`/users/${user.id}`}>
             {user.name}
           </Link>
         </li>
