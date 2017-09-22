@@ -37,3 +37,10 @@
 :global(a:hover) {
   opacity: .6;
 }
+
+:global(nav) {
+  text-align: right;
+}
+:global(nav > a) {
+  padding: 15px;
+}

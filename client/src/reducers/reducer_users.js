@@ -11,7 +11,7 @@ export default function (state = {}, action) {
     // if (!action.payload.data) return state;
     // return { ...state, [action.payload.data.id]: action.payload.data };
     case 'FETCH_USER_FAILURE':
-      return action.payload.message;
+      return action.payload;
     
     default:
       return state;

@@ -25,7 +25,6 @@ class UsersIndex extends Component {
   render() {
     return (
       <div className="usersIndex">
-        <span>click to view user info and posts</span>
         <ul>{this.renderUsers()}</ul>
       </div>
     )
