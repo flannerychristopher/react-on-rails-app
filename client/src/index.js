@@ -6,15 +6,12 @@ import thunk from 'redux-thunk';
 import promise from 'redux-promise';
 import { BrowserRouter, Switch } from 'react-router-dom';
 
-
 import reducers from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 
 import './index.css';
 import App from './App';
 
-// const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
-// <Provider store={createStoreWithMiddleware(reducers)}>
 const store = createStore(
   reducers,
   applyMiddleware(promise, thunk)
@@ -22,28 +19,13 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <div>
       <BrowserRouter>
         <Switch>
           <App />
         </Switch>
       </BrowserRouter>
-    </div>
   </Provider>
-
   , document.getElementById('root')
 );
 
 registerServiceWorker();
-
-// <Provider store={createStoreWithMiddleware(reducers)}>
-//   <div>
-//     <BrowserRouter>
-//       <Switch>
-//         <Route exact path="/" component={UsersIndex} />
-//         <Route path="/users/:id" component={UsersShow} />
-//         <UsersIndex />
-//       </Switch>
-//     </BrowserRouter>
-//   </div>
-// </Provider>

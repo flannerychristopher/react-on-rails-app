@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import UsersIndex from './components/users_index';
 import Content from './components/content';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div>
@@ -13,5 +13,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
