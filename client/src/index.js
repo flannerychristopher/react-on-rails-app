@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { BrowserRouter, Switch } from 'react-router-dom';
 
 import promise from 'redux-promise';
@@ -12,10 +13,15 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import App from './App';
 
-const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+// const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+// <Provider store={createStoreWithMiddleware(reducers)}>
+const store = createStore(
+  reducers,
+  applyMiddleware(promise, thunk)
+);
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={store}>
     <div>
       <BrowserRouter>
         <Switch>
