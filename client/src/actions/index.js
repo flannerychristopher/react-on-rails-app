@@ -30,3 +30,12 @@ export function fetchUser(id) {
     });
   };
 }
+
+export function fetchPosts() {
+  const request = axios.get('/posts');
+  return (dispatch) => {
+    request.then(({ data }) => {
+      dispatch({ type: 'FETCH_POSTS', payload: data})
+    });
+  };
+}

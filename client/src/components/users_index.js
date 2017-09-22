@@ -18,7 +18,7 @@ class UsersIndex extends Component {
             {user.name}
           </Link>
         </li>
-      )
+      );
     });
   }
 
