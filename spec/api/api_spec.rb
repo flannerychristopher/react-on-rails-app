@@ -83,3 +83,20 @@ RSpec.describe "unpermitted routes rejected", :type => :request do
     end
   end
 end
+
+RSpec.describe "save from RecordNotFound", :type => :request do
+  context "User record" do
+    before do
+      get "/users/1000000000000"
+    end
+
+    it "returns http status" do
+      expect(response).to have_http_status(400)
+    end
+
+    it "returns json message" do
+      expect { JSON.parse(response.body) }.not_to raise_exception
+    end
+
+  end
+end
