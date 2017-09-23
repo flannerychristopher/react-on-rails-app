@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchUsers } from './actions';
+import { fetchUsers, fetchPosts } from './actions';
+
+import PropsRoute from './components/props_route';
 
 import UsersIndex from './components/users_index';
 import { Route, Link } from 'react-router-dom';
@@ -14,6 +16,7 @@ import Flanthedev from './components/flanthedev';
 class App extends Component {
   componentDidMount() {
     this.props.fetchUsers();
+    this.props.fetchPosts();
   }
   render() {
     return (
@@ -28,7 +31,7 @@ class App extends Component {
           </nav>
           <h1>The React on Rails App</h1>
           <Route exact path="/" component={Welcome} />
-          <Route path="/posts" component={PostsIndex} />
+          <PropsRoute path="/posts" component={PostsIndex} posts={this.props.posts} />
           <Route path="/about" component={About} />
           <Route path="/flanthedev" component={Flanthedev} />
           <Route path="/users/:id" component={UsersShow} />
@@ -39,7 +42,10 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  return { users: state.users };
+  return { 
+    users: state.users,
+    posts: state.posts 
+  };
 }
 
-export default connect(mapStateToProps, { fetchUsers })(App);
+export default connect(mapStateToProps, { fetchUsers, fetchPosts })(App);
