@@ -31,7 +31,11 @@ class App extends Component {
           </nav>
           <h1>The React on Rails App</h1>
           <Route exact path="/" component={Welcome} />
-          <PropsRoute path="/posts" component={PostsIndex} posts={this.props.posts} />
+          <PropsRoute path="/posts" 
+            component={PostsIndex} 
+            posts={this.props.posts}
+            users={this.props.users} 
+          />
           <Route path="/about" component={About} />
           <Route path="/flanthedev" component={Flanthedev} />
           <Route path="/users/:id" component={UsersShow} />

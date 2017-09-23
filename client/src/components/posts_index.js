@@ -8,6 +8,7 @@ export default class PostsIndex extends Component {
       return (
         <li key={post.id}>
           <h4>{post.title}</h4>
+          <p>by: {this.props.users[post.user_id].name}</p>
           <p>{post.content}</p>
         </li>
       );
