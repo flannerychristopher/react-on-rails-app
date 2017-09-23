@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   def index
-    # @posts = Post.all
-    # render json: @posts
-    render json: format_posts
+    render json: Post.all
+    # render json: format_posts
   end
 
   def show
+    render json: Post.find(params[:id])
   end
 
   private

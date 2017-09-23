@@ -28,6 +28,7 @@ RSpec.describe "GET users#show", :type => :request do
     
     it "returns valid http success" do
       expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(200)
     end
     
     it "responds with JSON body" do
@@ -35,6 +36,7 @@ RSpec.describe "GET users#show", :type => :request do
       expect { 
         hash_body = JSON.parse(response.body)
       }.not_to raise_exception
+      expect(hash_body).not_to be_empty
     end
     
     it "responds with correct data" do

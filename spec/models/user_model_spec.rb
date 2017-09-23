@@ -1,11 +1,12 @@
 require "rails_helper"
 
 RSpec.describe User, :type => :model do
-  context "instance of User" do
-    before(:each) do
-      @user = User.create(name: "Bill Murray", email: "bill@example.com")
-    end
-
+  
+  before(:each) do
+    @user = User.create(name: "Bill Murray", email: "bill@example.com")
+  end
+  
+  context "attribute type of" do
     it 'should be a valid instance' do
       expect(@user).to_not be_nil
       expect(@user.id).to be_a_kind_of(Integer)
@@ -15,11 +16,11 @@ RSpec.describe User, :type => :model do
       expect(@user).to have_attributes(email: "bill@example.com")
     end
   end
-
+  
   context "validations" do
-    before do
-      @user = User.new(name: "Bill", email: "bill@example.com")
-    end
+    it { should have_many(:posts) }
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:email) }
 
     it "name should be less than 50 characters" do
       @user.name = "a"*51
