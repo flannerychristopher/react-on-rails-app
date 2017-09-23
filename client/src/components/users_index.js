@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import _ from 'lodash';
 import { Link } from 'react-router-dom';
-import { fetchUsers } from '../actions';
+import _ from 'lodash';
 
-class UsersIndex extends Component {
-  componentDidMount() {
-    this.props.fetchUsers();
-  }
-
+export default class UsersIndex extends Component {
   renderUsers() {
     if (!this.props.users) return <div>loading ...</div>;
     return _.map(this.props.users, user => {
@@ -30,9 +24,3 @@ class UsersIndex extends Component {
     )
   }
 }
-
-function mapStateToProps(state) {
-  return { users: state.users };
-}
-
-export default connect(mapStateToProps, { fetchUsers })(UsersIndex);

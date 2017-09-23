@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchUsers } from './actions';
 
 import UsersIndex from './components/users_index';
 import { Route, Link } from 'react-router-dom';
@@ -8,11 +10,15 @@ import Welcome from './components/welcome';
 import About from './components/about';
 import Flanthedev from './components/flanthedev';
 
-export default class App extends Component {
+
+class App extends Component {
+  componentDidMount() {
+    this.props.fetchUsers();
+  }
   render() {
     return (
       <div>
-        <UsersIndex />
+        <UsersIndex users={this.props.users} />
         <div className="content">
           <nav>
             <Link to="/">Welcome Page</Link>
@@ -31,3 +37,9 @@ export default class App extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return { users: state.users };
+}
+
+export default connect(mapStateToProps, { fetchUsers })(App);
