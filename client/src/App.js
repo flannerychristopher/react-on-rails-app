@@ -8,6 +8,7 @@ import UsersIndex from './components/users_index';
 import { Route, Link } from 'react-router-dom';
 import UsersShow from './components/users_show';
 import PostsIndex from './components/posts_index';
+import PostsNew from './components/posts_new';
 import Welcome from './components/welcome';
 import About from './components/about';
 import Flanthedev from './components/flanthedev';
@@ -24,6 +25,7 @@ class App extends Component {
         <UsersIndex users={this.props.users} />
         <div className="content">
           <nav>
+            <Link to="/posts/new">Create a Post</Link>
             <Link to="/">Welcome Page</Link>
             <Link to="/posts">View All Posts</Link>
             <Link to="/about">About this App</Link>
@@ -31,11 +33,12 @@ class App extends Component {
           </nav>
           <h1>The React on Rails App</h1>
           <Route exact path="/" component={Welcome} />
-          <PropsRoute path="/posts" 
+          <PropsRoute exact path="/posts" 
             component={PostsIndex} 
             posts={this.props.posts}
             users={this.props.users} 
           />
+          <Route path="/posts/new" component={PostsNew} />
           <Route path="/about" component={About} />
           <Route path="/flanthedev" component={Flanthedev} />
           <Route path="/users/:id" component={UsersShow} />
